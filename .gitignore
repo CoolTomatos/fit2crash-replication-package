@@ -1,6 +1,9 @@
 # JetBrains IDEs related files
 .idea/
 
+# macOS file system related file
+.DS_Store
+
 # History files
 .Rhistory
 .Rapp.history
