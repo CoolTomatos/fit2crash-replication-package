@@ -1,0 +1,8 @@
+application, number_of_crashes, avg_number_of_frames, avg_cyc_complexity, avg_number_of_statements
+CHART,                       1,                 5.00,               2.77,                    59088
+ES,                         15,                12.73,               1.80,                   118807
+LANG,                        3,                 1.00,               3.32,                    14198
+MATH,                        3,                 2.00,               2.32,                    15631
+TIME,                        3,                 1.33,               2.12,                    19436
+XWIKI,                       4,                 9.25,               1.89,                   204018
+Total,                      29,                 8.48,               2.09,                    96726

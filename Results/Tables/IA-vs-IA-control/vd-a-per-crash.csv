@@ -1,0 +1,11 @@
+crash,     frame_level,   vd.a, p_value, magnitude
+LANG-19b,            3, 0.1771, 0.00191, large
+LANG-51b,            1, 0.3356, 0.02847, small
+LANG-27b,            1, 0.4372, 0.40749, negligible
+LANG-12b,            2, 0.4630, 0.14604, negligible
+LANG-45b,            1, 0.5000, 1.00000, negligible
+LANG-44b,            1, 0.6272, 0.09189, small
+MATH-101b,           1, 0.6351, 0.07576, small
+MATH-81b,            6, 0.6364, 0.30660, small
+MATH-98b,            1, 0.6433, 0.05687, small
+LANG-9b,             6, 1.0000, 1.00000, large

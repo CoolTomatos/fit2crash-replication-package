@@ -1,0 +1,7 @@
+application, number_of_crashes, avg_number_of_frames, avg_cyc_complexity, avg_number_of_statements
+ES,                          7,                11.00,               1.82,                   135145
+LANG,                        8,                 2.75,               3.28,                    13646
+MATH,                        5,                 2.00,               2.37,                    22825
+MOCKITO,                     2,                 6.00,               1.79,                     6037
+XWIKI,                       1,                 7.00,               1.87,                   164668
+Total,                      23,                 5.57,               2.45,                    58524

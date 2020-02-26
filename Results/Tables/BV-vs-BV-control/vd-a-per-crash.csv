@@ -1,0 +1,15 @@
+crash,       frame_level,   vd.a, p_value, magnitude
+ES-21974,              5, 0.3095, 0.04305, medium
+XWIKI-13942,           5, 0.4286, 0.74271, negligible
+MATH-95b,              4, 0.4594, 0.57056, negligible
+CHART-13b,             2, 0.4711, 0.70610, negligible
+TIME-8b,               1, 0.4983, 0.97734, negligible
+ES-22119,              1, 0.5000, 1.00000, negligible
+LANG-2b,               1, 0.5000, 1.00000, negligible
+LANG-5b,               1, 0.5000, 1.00000, negligible
+MATH-90b,              1, 0.5000, 1.00000, negligible
+XWIKI-12667,           2, 0.5000, 1.00000, negligible
+XWIKI-13196,           2, 0.5000, 1.00000, negligible
+XWIKI-13546,           2, 0.5000, 1.00000, negligible
+ES-14457,              3, 0.5227, 0.91965, negligible
+LANG-54b,              1, 0.6800, 0.01695, medium
