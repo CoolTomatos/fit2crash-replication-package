@@ -24,7 +24,7 @@ java.lang.IllegalStateException: No match found
   at org.elasticsearch.bootstrap.Elasticsearch.init(Elasticsearch.java:121)
 ```
 
-Due to the frequent released updates of `jdk`, Botsing decides not to instrument any `jdk` classes.
+Due to the frequent released updates of `jdk`, Botsing developers decide not to instrument any `jdk` class to avoid discrepancies between line numbers reported in the stack trace and line numbers of the installed `jdk`.
 Therefore, when our `BranchingVariableDiversityFactory` queries the method node, a `NullPointerException` is thrown, interrupting the pre-processing.
 [__BV-control__] ignores the exception, however cannot move any further either without the necessary instrumentation.
 

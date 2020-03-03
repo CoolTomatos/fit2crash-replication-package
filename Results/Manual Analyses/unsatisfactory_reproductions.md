@@ -66,8 +66,365 @@ However, the method would not return such a value if it was not stubbed.
 The generated test case is far-fetched and does not reveal any information about the bug either.
 Therefore the crash should not be considered reproduced.
 
-We have identified 73 unsatisfactory reproductions for configuration [__IA__], 65 for [__IA-control__] respectively out of 3,840 runs.
+We have identified 72 unsatisfactory reproductions for configuration [__IA__], 65 for [__IA-control__] respectively out of 3,840 runs.
 With Fisher's exact test, the resulting _p_-value is _0.5478_.
 For configuration [__BV__], 182 unsatisfactory reproductions have been identified out of 7,380 runs, and 194 for [__BV-control__].
 With Fisher's exact test we have _p = 0.5656_.
 Therefore, Botsing's behaviour of generating unsatisfactory reproductions is not related to our proposed methods and it is out of the scope of this thesis project to investigate the reason behind this behaviour.
+
+#### Table 1: Composition of the Unsatisfactory Reproductions
+<table>
+  <tr>
+    <th rowspan="2">case_frame</th>
+    <th colspan="2">Count</th>
+    <th rowspan="2">case_frame</th>
+    <th colspan="2">Count</th>
+  </tr>
+  <tr>
+    <td>IA</td>
+    <td>control</td>
+    <td>BV</td>
+    <td>control</td>
+  </tr>
+  <tr>
+    <td><a href="#listing-2-generated-test-case-for-lang-6b-1">LANG-6b-1</a></td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="#listing-9-generated-test-case-for-es-20479-1">ES-20479-1</a></td>
+    <td>17</td>
+    <td>21</td>
+  </tr>
+  <tr>
+    <td><a href="#listing-4-generated-test-case-for-lang-12b-1">LANG-12b-1</a></td>
+    <td>30</td>
+    <td>30</td>
+    <td><a href="#listing-10-generated-test-case-for-es-21457-1">ES-21457-1</a></td>
+    <td>28</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td><a href="#listing-5-generated-test-case-for-lang-12b-2">LANG-12b-2</a></td>
+    <td>1</td>
+    <td>3</td>
+    <td><a href="#listing-11-generated-test-case-for-es-21457-2">ES-21457-2</a></td>
+    <td>30</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td><a href="#listing-6-generated-test-case-for-lang-19b-1">LANG-19b-1</a></td>
+    <td>11</td>
+    <td>0</td>
+    <td><a href="#listing-12-generated-test-case-for-es-22119-1">ES-22119-1</a></td>
+    <td>20</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td><a href="#listing-7-generated-test-case-for-math-100b-1">MATH-100b-1</a></td>
+    <td>30</td>
+    <td>30</td>
+    <td><a href="#listing-13-generated-test-case-for-es-22119-2">ES-22119-2</a></td>
+    <td>27</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td><a href="#listing-8-generated-test-case-for-math-101b-1">MATH-101b-1</a></td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="#listing-14-generated-test-case-for-es-23381-3">ES-23381-3</a></td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#listing-15-generated-test-case-for-math-95b-3">MATH-95b-3</a></td>
+    <td>3</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#listing-16-generated-test-case-for-math-97b-1">MATH-97b-1</a></td>
+    <td>27</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#listing-17-generated-test-case-for-time-20b-1">TIME-20b-1</a></td>
+    <td>28</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><a href="#listing-18-generated-test-case-for-xwiki-13942-5">XWiki-13942-5</a></td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Sum</td>
+    <td>72</td>
+    <td>65</td>
+    <td>Sum</td>
+    <td>182</td>
+    <td>194</td>
+  </tr>
+</table>
+
+#### Listing 4: Generated Test Case for LANG-12b-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    char[] charArray0 = new char[4];
+    Random random0 = mock(Random.class, new ViolatedAssumptionAnswer());
+    doReturn(0).when(random0).nextInt(anyInt());
+    // Undeclared exception!
+    RandomStringUtils.random(1, (-3424), 1, false, false, charArray0, random0);
+}
+```
+
+#### Listing 5: Generated Test Case for LANG-12b-2
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    char[] charArray0 = new char[4];
+    RandomStringUtils.random(1, charArray0);
+    Random random0 = mock(Random.class, new ViolatedAssumptionAnswer());
+    doReturn(3614).when(random0).nextInt(anyInt());
+    // Undeclared exception!
+    RandomStringUtils.random(1, 0, 2471, true, true, charArray0, random0);
+}
+```
+
+#### Listing 6: Generated Test Case for LANG-19b-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+    CharSequence charSequence0 = mock(CharSequence.class, new ViolatedAssumptionAnswer());
+    doReturn('&', '#', 'a', 'a', 'a').when(charSequence0).charAt(anyInt());
+    doReturn(302, 0, 0, 0, 0).when(charSequence0).length();
+    Writer writer0 = mock(Writer.class, new ViolatedAssumptionAnswer());
+    // Undeclared exception!
+    numericEntityUnescaper0.translate(charSequence0, (-1838), writer0);
+}
+```
+
+#### Listing 7: Generated Test Case for MATH-100b-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    LevenbergMarquardtEstimator levenbergMarquardtEstimator0 = new LevenbergMarquardtEstimator();
+    LevenbergMarquardtEstimatorTest levenbergMarquardtEstimatorTest0 = new LevenbergMarquardtEstimatorTest("");
+    LevenbergMarquardtEstimatorTest.QuadraticProblem levenbergMarquardtEstimatorTest_QuadraticProblem0 = levenbergMarquardtEstimatorTest0.new QuadraticProblem();
+    levenbergMarquardtEstimator0.initializeEstimate(levenbergMarquardtEstimatorTest_QuadraticProblem0);
+    WeightedMeasurement weightedMeasurement0 = mock(WeightedMeasurement.class, new ViolatedAssumptionAnswer());
+    levenbergMarquardtEstimatorTest_QuadraticProblem0.addMeasurement(weightedMeasurement0);
+    // Undeclared exception!
+    levenbergMarquardtEstimator0.getCovariances(levenbergMarquardtEstimatorTest_QuadraticProblem0);
+}
+```
+
+#### Listing 8: Generated Test Case for MATH-101b-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    Double double0 = new Double((-1603.2));
+    NumberFormat numberFormat0 = mock(NumberFormat.class, new ViolatedAssumptionAnswer());
+    doReturn("~2}WMGYf9cd0", "c").when(numberFormat0).toString();
+    doReturn(double0, double0).when(numberFormat0).parse(anyString(), any(java.text.ParsePosition.class));
+    ComplexFormat complexFormat0 = new ComplexFormat("Cp.n}QaOXw", numberFormat0, numberFormat0);
+    ParsePosition parsePosition0 = new ParsePosition(0);
+    // Undeclared exception!
+    complexFormat0.parse("(Infinity) + (Infinity)i", parsePosition0);
+}
+```
+
+#### Listing 9: Generated Test Case for ES-20479-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    String string0 = " size=";
+    Index index0 = mock(Index.class, new ViolatedAssumptionAnswer());
+    doReturn(" size=").when(index0).name();
+    IndexMetaData indexMetaData0 = IndexMetaData.PROTO;
+    Settings settings0 = indexMetaData0.getSettings();
+    IndexSettingsService indexSettingsService0 = mock(IndexSettingsService.class, new ViolatedAssumptionAnswer());
+    doReturn(settings0).when(indexSettingsService0).getSettings();
+    String[] stringArray0 = new String[3];
+    stringArray0[0] = " size=";
+    stringArray0[1] = " size=";
+    stringArray0[2] = " size=";
+    Settings settings1 = mock(Settings.class, new ViolatedAssumptionAnswer());
+    doReturn((String) null, (String) null).when(settings1).get(anyString());
+    CustomAnalyzerProvider customAnalyzerProvider0 = new CustomAnalyzerProvider(index0, indexSettingsService0, "", settings1);
+    Settings settings2 = customAnalyzerProvider0.indexSettings();
+    Index index1 = new Index("*ZT~b`p%<,a!zGq%+{9");
+    IndexSettingsService indexSettingsService1 = new IndexSettingsService(index1, settings0);
+    Logger logger0 = Logger.getLogger("] ");
+    Log4jESLogger log4jESLogger0 = new Log4jESLogger("*ZT~b`p%<,a!zGq%+{9", logger0);
+    MergePolicyConfig mergePolicyConfig0 = new MergePolicyConfig(log4jESLogger0, settings0);
+    indexSettingsService1.addListener(mergePolicyConfig0);
+    PathHierarchyTokenizerFactory pathHierarchyTokenizerFactory0 = new PathHierarchyTokenizerFactory(index1, indexSettingsService1, "", settings0);
+    HtmlStripCharFilterFactory htmlStripCharFilterFactory0 = new HtmlStripCharFilterFactory(index1, indexSettingsService1, " size=", settings2);
+    AnalysisService analysisService0 = mock(AnalysisService.class, new ViolatedAssumptionAnswer());
+    // Undeclared exception!
+    customAnalyzerProvider0.build(analysisService0);
+}
+```
+
+#### Listing 10: Generated Test Case for ES-21457-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    IndexSettings indexSettings0 = mock(IndexSettings.class, new ViolatedAssumptionAnswer());
+    doReturn(false).when(indexSettings0).isDefaultAllowUnmappedFields();
+    BitsetFilterCache bitsetFilterCache0 = mock(BitsetFilterCache.class, new ViolatedAssumptionAnswer());
+    IndexFieldDataService indexFieldDataService0 = mock(IndexFieldDataService.class, new ViolatedAssumptionAnswer());
+    MapperService mapperService0 = mock(MapperService.class, new ViolatedAssumptionAnswer());
+    SimilarityService similarityService0 = mock(SimilarityService.class, new ViolatedAssumptionAnswer());
+    ScriptService scriptService0 = mock(ScriptService.class, new ViolatedAssumptionAnswer());
+    IndicesQueriesRegistry indicesQueriesRegistry0 = mock(IndicesQueriesRegistry.class, new ViolatedAssumptionAnswer());
+    Client client0 = mock(Client.class, new ViolatedAssumptionAnswer());
+    IndexReader indexReader0 = mock(IndexReader.class, new ViolatedAssumptionAnswer());
+    LongSupplier longSupplier0 = mock(LongSupplier.class, new ViolatedAssumptionAnswer());
+    QueryShardContext queryShardContext0 = new QueryShardContext(indexSettings0, bitsetFilterCache0, indexFieldDataService0, mapperService0, similarityService0, scriptService0, indicesQueriesRegistry0, client0, indexReader0, (ClusterState) null, longSupplier0);
+    queryShardContext0.freezeContext();
+    // Undeclared exception!
+    queryShardContext0.failIfFrozen();
+}
+```
+
+#### Listing 11: Generated Test Case for ES-21457-2
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    IndexSettings indexSettings0 = mock(IndexSettings.class, new ViolatedAssumptionAnswer());
+    doReturn(false).when(indexSettings0).isDefaultAllowUnmappedFields();
+    BitsetFilterCache bitsetFilterCache0 = mock(BitsetFilterCache.class, new ViolatedAssumptionAnswer());
+    IndexFieldDataService indexFieldDataService0 = mock(IndexFieldDataService.class, new ViolatedAssumptionAnswer());
+    MapperService mapperService0 = mock(MapperService.class, new ViolatedAssumptionAnswer());
+    SimilarityService similarityService0 = mock(SimilarityService.class, new ViolatedAssumptionAnswer());
+    ScriptService scriptService0 = mock(ScriptService.class, new ViolatedAssumptionAnswer());
+    IndicesQueriesRegistry indicesQueriesRegistry0 = mock(IndicesQueriesRegistry.class, new ViolatedAssumptionAnswer());
+    IndexReader indexReader0 = mock(IndexReader.class, new ViolatedAssumptionAnswer());
+    ClusterState clusterState0 = mock(ClusterState.class, new ViolatedAssumptionAnswer());
+    QueryShardContext queryShardContext0 = new QueryShardContext(indexSettings0, bitsetFilterCache0, indexFieldDataService0, mapperService0, similarityService0, scriptService0, indicesQueriesRegistry0, (Client) null, indexReader0, clusterState0, (LongSupplier) null);
+    queryShardContext0.freezeContext();
+    // Undeclared exception!
+    queryShardContext0.nowInMillis();
+}
+```
+
+#### Listing 12: Generated Test Case for ES-22119-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    StreamInput streamInput0 = mock(StreamInput.class, new ViolatedAssumptionAnswer());
+    doReturn((-1651)).when(streamInput0).readVInt();
+    // Undeclared exception!
+    ScriptType.readFrom(streamInput0);
+}
+```
+
+#### Listing 13: Generated Test Case for ES-22119-2
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    SearchTemplateRequest searchTemplateRequest0 = new SearchTemplateRequest();
+    StreamInput streamInput0 = mock(StreamInput.class, new ViolatedAssumptionAnswer());
+    doReturn(false, false, false).when(streamInput0).readBoolean();
+    doReturn((IndexResponse) null).when(streamInput0).readOptionalStreamable(nullable(java.util.function.Supplier.class));
+    doReturn("").when(streamInput0).readString();
+    doReturn((-826)).when(streamInput0).readVInt();
+    // Undeclared exception!
+    searchTemplateRequest0.readFrom(streamInput0);
+}
+```
+
+#### Listing 14: Generated Test Case for ES-23381-3
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    Version version0 = Version.V_5_0_3_UNRELEASED;
+    Settings settings0 = mock(Settings.class, new ViolatedAssumptionAnswer());
+    doReturn(version0, version0, version0, version0, version0).when(settings0).getAsVersion(anyString() , any(org.elasticsearch.Version.class));
+    ContentPath contentPath0 = new ContentPath();
+    Mapper.BuilderContext mapper_BuilderContext0 = new Mapper.BuilderContext(settings0, contentPath0);
+    ParentFieldMapper.Builder parentFieldMapper_Builder0 = new ParentFieldMapper.Builder("5.0.3");
+    ParentFieldMapper.Builder parentFieldMapper_Builder1 = parentFieldMapper_Builder0.type("5.0.3");
+    ParentFieldMapper parentFieldMapper0 = parentFieldMapper_Builder1.build(mapper_BuilderContext0);
+    ParentFieldMapper.Builder parentFieldMapper_Builder2 = new ParentFieldMapper.Builder("FGOWSPLCWti?;");
+    ParentFieldMapper.Builder parentFieldMapper_Builder3 = parentFieldMapper_Builder2.type("$I");
+    ParentFieldMapper parentFieldMapper1 = parentFieldMapper_Builder3.build(mapper_BuilderContext0);
+    // Undeclared exception!
+    parentFieldMapper0.merge(parentFieldMapper1, false);
+}
+```
+
+#### Listing 15: Generated Test Case for MATH-95b-3
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    GammaDistribution gammaDistribution0 = mock(GammaDistribution.class, new ViolatedAssumptionAnswer());
+    doReturn(0.0, 0.0).when(gammaDistribution0).getAlpha();
+    doReturn(0.0).when(gammaDistribution0).getBeta();
+    ChiSquaredDistributionImpl chiSquaredDistributionImpl0 = new ChiSquaredDistributionImpl((-989.41664991), gammaDistribution0);
+    // Undeclared exception!
+    chiSquaredDistributionImpl0.inverseCumulativeProbability(1.0E-6);
+}
+```
+
+#### Listing 16: Generated Test Case for MATH-97b-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    UnivariateRealFunction univariateRealFunction0 = mock(UnivariateRealFunction.class, new ViolatedAssumptionAnswer());
+    doReturn(0.0, 0.0).when(univariateRealFunction0).value(anyDouble());
+    BrentSolver brentSolver0 = new BrentSolver(univariateRealFunction0);
+    // Undeclared exception!
+    brentSolver0.solve((-1.7086360267915), 1.0E-15);
+}
+```
+
+#### Listing 17: Generated Test Case for TIME-20b-1
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    DateTimeParser dateTimeParser0 = mock(DateTimeParser.class, new ViolatedAssumptionAnswer());
+    doReturn((String) null).when(dateTimeParser0).toString();
+    doReturn(0).when(dateTimeParser0).parseInto(any(org.joda.time.format.DateTimeParserBucket.class) , anyString() , anyInt());
+    DateTimeFormatter dateTimeFormatter0 = new DateTimeFormatter((DateTimePrinter) null, dateTimeParser0);
+    // Undeclared exception!
+    dateTimeFormatter0.parseDateTime("wY");
+}
+```
+
+#### Listing 18: Generated Test Case for XWiki-13942-5
+``` java
+@Test(timeout = 4000)
+public void test0() throws Throwable {
+    ModelScriptService modelScriptService0 = new ModelScriptService();
+    ExplicitStringEntityReferenceResolver explicitStringEntityReferenceResolver0 = new ExplicitStringEntityReferenceResolver();
+    DefaultSymbolScheme defaultSymbolScheme0 = new DefaultSymbolScheme();
+    Injector.inject(explicitStringEntityReferenceResolver0, (Class<?>) AbstractStringEntityReferenceResolver.class, "symbolScheme", (Object) defaultSymbolScheme0);
+    Injector.validateBean(explicitStringEntityReferenceResolver0, (Class<?>) ExplicitStringEntityReferenceResolver.class);
+    explicitStringEntityReferenceResolver0.initialize();
+    ComponentManager componentManager0 = mock(ComponentManager.class, new ViolatedAssumptionAnswer());
+    doReturn(explicitStringEntityReferenceResolver0).when(componentManager0).getInstance(any(java.lang.reflect.Type.class) , anyString());
+    Injector.inject(modelScriptService0, (Class<?>) ModelScriptService.class, "componentManager", (Object) componentManager0);
+    EntityReferenceSerializer<LocalStringEntityReferenceSerializer> entityReferenceSerializer0 = (EntityReferenceSerializer<LocalStringEntityReferenceSerializer>) mock(EntityReferenceSerializer.class, new ViolatedAssumptionAnswer());
+    Injector.inject(modelScriptService0, (Class<?>) ModelScriptService.class, "defaultSerializer", (Object) entityReferenceSerializer0);
+    Logger logger0 = mock(Logger.class, new ViolatedAssumptionAnswer());
+    Injector.inject(modelScriptService0, (Class<?>) ModelScriptService.class, "logger", (Object) logger0);
+    Injector.validateBean(modelScriptService0, (Class<?>) ModelScriptService.class);
+    Object[] objectArray0 = new Object[4];
+    // Undeclared exception!
+    modelScriptService0.resolveSpace("55ch5OF|@[a3uq|=91:", "55ch5OF|@[a3uq|=91:", objectArray0);
+}
+```
